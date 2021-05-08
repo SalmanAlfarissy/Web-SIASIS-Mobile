@@ -90,39 +90,39 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="?page=home" class="active"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a href="?page=home&id_adm=<?php echo $_GET['id_adm']?>" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-user-secret fa-fw"></i> Administrator </a>
+                                <a href="?page=administrator&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user-secret fa-fw"></i> Administrator </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-user-md fa-fw"></i> Guru </a>
+                                <a href="?page=guru&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user-md fa-fw"></i> Guru </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-user fa-fw"></i> Siswa </a>
+                                <a href="?page=siswa&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user fa-fw"></i> Siswa </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-home fa-fw"></i> Profil Sekolah </a>
+                                <a href="?page=profil&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-home fa-fw"></i> Profil Sekolah </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-calendar-check-o fa-fw"></i> Jadwal Siswa </a>
+                                <a href="?page=jadwal&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calendar-check-o fa-fw"></i> Jadwal Siswa </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-calendar fa-fw"></i> Event </a>
+                                <a href="?page=event&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calendar fa-fw"></i> Event </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-calculator fa-fw"></i> Data Pembayaran SPP </a>
+                                <a href="?page=data_spp&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calculator fa-fw"></i> Data Pembayaran SPP </a>
                             </li>
 
                             <li>
-                                <a href="#"><i class="fa fa-users fa-fw"></i> Data Alumni </a>
+                                <a href="?page=alumni&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-users fa-fw"></i> Data Alumni </a>
                             </li>
 
 
