@@ -114,12 +114,16 @@ switch ($aksi){
                     $data=mysqli_fetch_array($query);
                     ?>
                     <a href=?page=administrator&aksi=list&id_adm=<?php echo $_GET['id_adm'] ?> class="btn btn-danger fa fa-table"> Data Administrator </a>
-                    <h2>Edit Berita</h2>
+                    <h2>Edit Administrator</h2>
 
-                    <form role="form" method="post" enctype="multipart/form-data" action="aksi_raport.php?page=raport&proses=update">
+                    <form role="form" method="post" enctype="multipart/form-data" action="aksi_administrator.php?page=administrator&proses=update">
                         
-                        
-                    <div class="form-group">
+                        <div class="form-group">
+                            <label>ID</label>
+                            <input type="text" name="id_adm" class="form-control" placeholder="ID" value="<?php echo $data['id_adm']?>">
+                        </div>
+
+                        <div class="form-group">
                             <label>NIP</label>
                             <input type="text" name="nip_ad" class="form-control" placeholder="NIP" value="<?php echo $data['nip_ad']?>">
                         </div>
@@ -141,6 +145,8 @@ switch ($aksi){
                         
                         <button type="submit" class="btn btn-primary fa fa-floppy-o"> Simpan</button>
                         <button type="reset" class="btn btn-default">Reset</button>
+                        </br>
+                        </br>
                     </form>
                     <?php
                         break;

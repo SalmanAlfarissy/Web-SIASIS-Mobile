@@ -13,7 +13,7 @@ switch ($aksi){
 ?>
 
 <div>
-    <a href=?page=raport&aksi=entri&id_guru=<?php echo $_GET['id_guru'] ?> class="btn btn-primary fa fa-plus"> Entri Berita</a>
+    <a href=?page=raport&aksi=entri&id_guru=<?php echo $_GET['id_guru'] ?> class="btn btn-primary fa fa-plus"> Entri Raport</a>
 </div>
 <br/>
 
@@ -75,7 +75,7 @@ switch ($aksi){
 
                     ?>
                     <a href=?page=raport&aksi=list&id_guru=<?php echo $_GET['id_guru'] ?> class="btn btn-danger fa fa-table"> Data Raport </a>
-                    <h2>Entri Berita</h2>
+                    <h2>Entri Raport</h2>
 
                     <form role="form" method="post" enctype="multipart/form-data" action="aksi_raport.php?page=raport&proses=input">
                         

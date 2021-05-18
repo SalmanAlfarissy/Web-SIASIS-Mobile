@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 05 Bulan Mei 2021 pada 10.19
+-- Waktu pembuatan: 18 Bulan Mei 2021 pada 19.09
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -40,19 +40,11 @@ CREATE TABLE `administrator` (
 --
 
 INSERT INTO `administrator` (`id_adm`, `nip_ad`, `nama_ad`, `email`, `password`) VALUES
-(1, '18110820271999', 'Salman Alfarissy', 'alfarissy.scorpio@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `adm_pembayaran`
---
-
-CREATE TABLE `adm_pembayaran` (
-  `id_adm_pem` int(50) NOT NULL,
-  `id_pem` int(50) NOT NULL,
-  `id_adm` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(1, '18110820271990', 'Salman Alfarissy', 'alfarissy.scorpio@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
+(2, '18110820230999', 'Vira mistika', 'vira.mistika@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
+(3, '18110810062000', 'Novita Aulia', 'novita.aulia@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
+(4, '18110820240999', 'Afrizal Fauzi', 'afrizal.fauzi@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
+(5, '18110820191999', 'Indah Wahyu Andilah', 'indah.wahyu@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f');
 
 -- --------------------------------------------------------
 
@@ -66,27 +58,19 @@ CREATE TABLE `guru` (
   `nip_guru` varchar(100) NOT NULL,
   `password` varchar(50) NOT NULL,
   `nama_guru` varchar(100) NOT NULL,
-  `no_telp` varchar(100) NOT NULL
+  `email_guru` varchar(100) NOT NULL,
+  `no_telp` varchar(100) NOT NULL,
+  `jabatan` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data untuk tabel `guru`
 --
 
-INSERT INTO `guru` (`id_guru`, `id_adm`, `nip_guru`, `password`, `nama_guru`, `no_telp`) VALUES
-(1, 1, '18110820272699', 'e807f1fcf82d132f9bb018ca6738a19f', 'Salman Alfarissy', '082285032741');
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `hubungan`
---
-
-CREATE TABLE `hubungan` (
-  `id_hub` int(50) NOT NULL,
-  `id_info` int(50) NOT NULL,
-  `id_adm` int(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+INSERT INTO `guru` (`id_guru`, `id_adm`, `nip_guru`, `password`, `nama_guru`, `email_guru`, `no_telp`, `jabatan`) VALUES
+(1, 1, '18110820271999', 'e807f1fcf82d132f9bb018ca6738a19f', 'Salman Alfarissy', 'alfarissy.scorpio@gmail.com', '082285032741', 'Wali Kelas X.1'),
+(2, 1, '18110810062000', 'e807f1fcf82d132f9bb018ca6738a19f', 'Novita Aulia', 'novi@gmail.com', '082285000190', 'Wali Kelas X.2'),
+(3, 3, '18110820231999', 'e807f1fcf82d132f9bb018ca6738a19f', 'Vira Mistika', 'vira@gmail.com', '082234567890', 'Wali Kelas x.3');
 
 -- --------------------------------------------------------
 
@@ -96,24 +80,23 @@ CREATE TABLE `hubungan` (
 
 CREATE TABLE `informasi` (
   `id_info` int(50) NOT NULL,
+  `id_adm` int(50) NOT NULL,
   `nama_event` varchar(50) NOT NULL,
   `gambar_event` text NOT NULL,
-  `tgl_post` date NOT NULL,
+  `tgl_post` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `jabatan`
+-- Struktur dari tabel `kelas`
 --
 
-CREATE TABLE `jabatan` (
-  `id_jabatan` int(50) NOT NULL,
-  `id_guru` int(50) NOT NULL,
-  `nip_guru` varchar(50) NOT NULL,
-  `jabatan` varchar(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+CREATE TABLE `kelas` (
+  `kelas` varchar(50) NOT NULL,
+  `jadwal` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -123,6 +106,7 @@ CREATE TABLE `jabatan` (
 
 CREATE TABLE `pembayaran` (
   `id_pem` int(50) NOT NULL,
+  `id_adm` int(50) NOT NULL,
   `nis` varchar(50) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -156,7 +140,7 @@ CREATE TABLE `siswa` (
   `nis` varchar(100) NOT NULL,
   `nama_sis` varchar(100) NOT NULL,
   `foto_sis` text NOT NULL,
-  `ttl` date NOT NULL,
+  `ttl` varchar(100) NOT NULL,
   `jenis_kelamin` enum('L','P') NOT NULL,
   `agama` varchar(20) NOT NULL,
   `status_keluarga` enum('Anak Kandung','Anak Tiri') NOT NULL,
@@ -185,14 +169,6 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
--- Dumping data untuk tabel `siswa`
---
-
-INSERT INTO `siswa` (`id_siswa`, `id_guru`, `id_adm`, `password`, `nisn`, `nis`, `nama_sis`, `foto_sis`, `ttl`, `jenis_kelamin`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `no_hp`, `kelas`, `tahun_diterima`, `semester_diterima`, `nama_sekolah_asal`, `alamat_sekolah_asal`, `tahun_ijazah_sebelumnya`, `nomor_ijazah_sebelumnya`, `tahun_skhun_sebelumya`, `nomor_skhun_sebelumnya`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `no_hp_wali`, `pekerjaan_wali`, `cover`) VALUES
-(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '3534', 'Salman Alfarissy', '', '1999-10-26', 'L', 'islam', 'Anak Kandung', '2', 'Kampuang Tanjuang,Nagari Kampuang Tanjuang Koto Mambang Sungai Durian,Kec.Patamuan,Kab.Padang Pariaman,Prov.Sumatera Barat', '082285032741', 'X.1', '2016', 'Semester 1', 'Smp N 1 Patamuan', 'Kabun Pondok Duo', '2016', '123456', '2016', '12344567', 'Abdul kosasi', 'Murlena Dewi', 'Kampuang Tanjuang', 'Buruh harian Lepas', 'IRT', '', '', '', '', ''),
-(2, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054912', '123454', 'Vira Mistika', '', '1999-09-09', 'P', 'islam', 'Anak Kandung', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
-
---
 -- Indexes for dumped tables
 --
 
@@ -203,14 +179,6 @@ ALTER TABLE `administrator`
   ADD PRIMARY KEY (`id_adm`);
 
 --
--- Indeks untuk tabel `adm_pembayaran`
---
-ALTER TABLE `adm_pembayaran`
-  ADD PRIMARY KEY (`id_adm_pem`),
-  ADD KEY `id_pem` (`id_pem`),
-  ADD KEY `id_adm` (`id_adm`);
-
---
 -- Indeks untuk tabel `guru`
 --
 ALTER TABLE `guru`
@@ -218,31 +186,24 @@ ALTER TABLE `guru`
   ADD KEY `id_adm` (`id_adm`);
 
 --
--- Indeks untuk tabel `hubungan`
---
-ALTER TABLE `hubungan`
-  ADD PRIMARY KEY (`id_hub`),
-  ADD KEY `id_info` (`id_info`,`id_adm`),
-  ADD KEY `id_adm` (`id_adm`);
-
---
 -- Indeks untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
-  ADD PRIMARY KEY (`id_info`);
+  ADD PRIMARY KEY (`id_info`),
+  ADD KEY `id_adm` (`id_adm`);
 
 --
--- Indeks untuk tabel `jabatan`
+-- Indeks untuk tabel `kelas`
 --
-ALTER TABLE `jabatan`
-  ADD PRIMARY KEY (`id_jabatan`),
-  ADD KEY `id_guru` (`id_guru`);
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`kelas`);
 
 --
 -- Indeks untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD PRIMARY KEY (`id_pem`);
+  ADD PRIMARY KEY (`id_pem`),
+  ADD KEY `id_adm` (`id_adm`);
 
 --
 -- Indeks untuk tabel `rapor`
@@ -258,19 +219,12 @@ ALTER TABLE `rapor`
 ALTER TABLE `siswa`
   ADD PRIMARY KEY (`id_siswa`),
   ADD KEY `id_adm` (`id_adm`),
-  ADD KEY `id_guru` (`id_guru`);
+  ADD KEY `id_guru` (`id_guru`),
+  ADD KEY `kelas` (`kelas`);
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
-
---
--- Ketidakleluasaan untuk tabel `adm_pembayaran`
---
-ALTER TABLE `adm_pembayaran`
-  ADD CONSTRAINT `adm_pembayaran_ibfk_1` FOREIGN KEY (`id_adm_pem`) REFERENCES `administrator` (`id_adm`),
-  ADD CONSTRAINT `adm_pembayaran_ibfk_2` FOREIGN KEY (`id_pem`) REFERENCES `pembayaran` (`id_pem`),
-  ADD CONSTRAINT `adm_pembayaran_ibfk_3` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `guru`
@@ -279,22 +233,16 @@ ALTER TABLE `guru`
   ADD CONSTRAINT `guru_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`);
 
 --
--- Ketidakleluasaan untuk tabel `hubungan`
---
-ALTER TABLE `hubungan`
-  ADD CONSTRAINT `hubungan_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`);
-
---
 -- Ketidakleluasaan untuk tabel `informasi`
 --
 ALTER TABLE `informasi`
-  ADD CONSTRAINT `informasi_ibfk_1` FOREIGN KEY (`id_info`) REFERENCES `hubungan` (`id_info`);
+  ADD CONSTRAINT `informasi_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `jabatan`
+-- Ketidakleluasaan untuk tabel `pembayaran`
 --
-ALTER TABLE `jabatan`
-  ADD CONSTRAINT `jabatan_ibfk_1` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id_guru`);
+ALTER TABLE `pembayaran`
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_pem`) REFERENCES `administrator` (`id_adm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `rapor`
@@ -308,7 +256,8 @@ ALTER TABLE `rapor`
 --
 ALTER TABLE `siswa`
   ADD CONSTRAINT `siswa_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`),
-  ADD CONSTRAINT `siswa_ibfk_2` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `siswa_ibfk_2` FOREIGN KEY (`id_guru`) REFERENCES `guru` (`id_guru`) ON DELETE CASCADE ON UPDATE CASCADE,
+  ADD CONSTRAINT `siswa_ibfk_3` FOREIGN KEY (`kelas`) REFERENCES `kelas` (`kelas`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

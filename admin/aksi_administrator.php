@@ -43,10 +43,10 @@ else if ($page=='administrator' AND $proses=='input'){
 else if ($page=='administrator' AND $proses=='update'){
   $pass=md5($_POST['password']);
     mysqli_query($koneksi,"UPDATE administrator SET 
-                            id_siswa    = '$_POST[nip_ad]',
-                            id_guru     = '$_POST[nama_ad]',
-                            rapor       = '$_POST[email]',
-							              semester	  = '$pass'  
+                            nip_ad    = '$_POST[nip_ad]',
+                            nama_ad     = '$_POST[nama_ad]',
+                            email       = '$_POST[email]',
+							              password	  = '$pass'  
                            WHERE id_adm = '$_POST[id_adm]'");
 
   header('location:index.php?page=administrator&id_adm='.$_SESSION['id_adm']);
