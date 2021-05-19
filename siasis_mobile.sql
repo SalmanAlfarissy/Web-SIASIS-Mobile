@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 18 Bulan Mei 2021 pada 19.09
+-- Waktu pembuatan: 19 Bulan Mei 2021 pada 19.24
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -45,6 +45,22 @@ INSERT INTO `administrator` (`id_adm`, `nip_ad`, `nama_ad`, `email`, `password`)
 (3, '18110810062000', 'Novita Aulia', 'novita.aulia@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
 (4, '18110820240999', 'Afrizal Fauzi', 'afrizal.fauzi@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
 (5, '18110820191999', 'Indah Wahyu Andilah', 'indah.wahyu@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `alumni`
+--
+
+CREATE TABLE `alumni` (
+  `id_alumni` int(50) NOT NULL,
+  `id_adm` int(50) NOT NULL,
+  `nama` varchar(100) NOT NULL,
+  `angkatan` varchar(50) NOT NULL,
+  `pekerjaan` varchar(100) NOT NULL,
+  `alamat` text NOT NULL,
+  `foto` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 -- --------------------------------------------------------
 
@@ -98,6 +114,15 @@ CREATE TABLE `kelas` (
   `jadwal` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `kelas`
+--
+
+INSERT INTO `kelas` (`kelas`, `jadwal`) VALUES
+('X.1', ''),
+('X.2', ''),
+('X.3', '');
+
 -- --------------------------------------------------------
 
 --
@@ -108,6 +133,7 @@ CREATE TABLE `pembayaran` (
   `id_pem` int(50) NOT NULL,
   `id_adm` int(50) NOT NULL,
   `nis` varchar(50) NOT NULL,
+  `semester` varchar(100) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -141,9 +167,9 @@ CREATE TABLE `siswa` (
   `nama_sis` varchar(100) NOT NULL,
   `foto_sis` text NOT NULL,
   `ttl` varchar(100) NOT NULL,
-  `jenis_kelamin` enum('L','P') NOT NULL,
+  `jenis_kelamin` varchar(50) NOT NULL,
   `agama` varchar(20) NOT NULL,
-  `status_keluarga` enum('Anak Kandung','Anak Tiri') NOT NULL,
+  `status_keluarga` varchar(50) NOT NULL,
   `anak_ke` varchar(20) NOT NULL,
   `alamat` text NOT NULL,
   `no_hp` varchar(20) NOT NULL,
@@ -169,6 +195,17 @@ CREATE TABLE `siswa` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
+-- Dumping data untuk tabel `siswa`
+--
+
+INSERT INTO `siswa` (`id_siswa`, `id_guru`, `id_adm`, `password`, `nisn`, `nis`, `nama_sis`, `foto_sis`, `ttl`, `jenis_kelamin`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `no_hp`, `kelas`, `tahun_diterima`, `semester_diterima`, `nama_sekolah_asal`, `alamat_sekolah_asal`, `tahun_ijazah_sebelumnya`, `nomor_ijazah_sebelumnya`, `tahun_skhun_sebelumya`, `nomor_skhun_sebelumnya`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `no_hp_wali`, `pekerjaan_wali`, `cover`) VALUES
+(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '13542', 'Salman Alfarissy', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(2, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054922', '12354', 'novita Aulia', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(3, 2, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054999', '14236', 'Afrizal Fauzi', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(4, 2, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054920', '12569', 'Vira Mistika', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(5, 3, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054900', '13457', 'Indah Wahyu Andilah', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+
+--
 -- Indexes for dumped tables
 --
 
@@ -177,6 +214,13 @@ CREATE TABLE `siswa` (
 --
 ALTER TABLE `administrator`
   ADD PRIMARY KEY (`id_adm`);
+
+--
+-- Indeks untuk tabel `alumni`
+--
+ALTER TABLE `alumni`
+  ADD PRIMARY KEY (`id_alumni`),
+  ADD KEY `id_adm` (`id_adm`);
 
 --
 -- Indeks untuk tabel `guru`
@@ -223,8 +267,30 @@ ALTER TABLE `siswa`
   ADD KEY `kelas` (`kelas`);
 
 --
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `alumni`
+--
+ALTER TABLE `alumni`
+  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT untuk tabel `pembayaran`
+--
+ALTER TABLE `pembayaran`
+  MODIFY `id_pem` int(50) NOT NULL AUTO_INCREMENT;
+
+--
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
+
+--
+-- Ketidakleluasaan untuk tabel `alumni`
+--
+ALTER TABLE `alumni`
+  ADD CONSTRAINT `alumni_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `guru`
@@ -242,7 +308,7 @@ ALTER TABLE `informasi`
 -- Ketidakleluasaan untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_pem`) REFERENCES `administrator` (`id_adm`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `pembayaran_ibfk_1` FOREIGN KEY (`id_adm`) REFERENCES `administrator` (`id_adm`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `rapor`
