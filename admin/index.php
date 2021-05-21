@@ -90,39 +90,39 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="?page=home&id_adm=<?php echo $_GET['id_adm']?>" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a <?php if ($_GET["page"]=="home"){echo 'class="active"'; }?> href="?page=home&id_adm=<?php echo $_GET['id_adm']?>" ><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
 
                             <li>
-                                <a href="?page=administrator&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user-secret fa-fw"></i> Administrator </a>
+                                <a <?php if ($_GET["page"]=="administrator"){echo 'class="active"'; }?> href="?page=administrator&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user-secret fa-fw"></i> Administrator </a>
                             </li>
 
                             <li>
-                                <a href="?page=guru&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user-md fa-fw"></i> Guru </a>
+                                <a <?php if ($_GET["page"]=="guru"){echo 'class="active"'; }?> href="?page=guru&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user-md fa-fw"></i> Guru </a>
                             </li>
 
                             <li>
-                                <a href="?page=siswa&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user fa-fw"></i> Siswa </a>
+                                <a <?php if ($_GET["page"]=="siswa"){echo 'class="active"'; }?> href="?page=siswa&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-user fa-fw"></i> Siswa </a>
                             </li>
 
                             <li>
-                                <a href="?page=profil&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-home fa-fw"></i> Profil Sekolah </a>
+                                <a <?php if ($_GET["page"]=="profil"){echo 'class="active"'; }?> href="?page=profil&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-home fa-fw"></i> Profil Sekolah </a>
                             </li>
 
                             <li>
-                                <a href="?page=jadwal&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calendar-check-o fa-fw"></i> Jadwal Siswa </a>
+                                <a <?php if ($_GET["page"]=="jadwal"){echo 'class="active"'; }?> href="?page=jadwal&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calendar-check-o fa-fw"></i> Jadwal Siswa </a>
                             </li>
 
                             <li>
-                                <a href="?page=event&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calendar fa-fw"></i> Event </a>
+                                <a <?php if ($_GET["page"]=="event"){echo 'class="active"'; }?> href="?page=event&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calendar fa-fw"></i> Event </a>
                             </li>
 
                             <li>
-                                <a href="?page=data_spp&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calculator fa-fw"></i> Data Pembayaran SPP </a>
+                                <a <?php if ($_GET["page"]=="data_spp"){echo 'class="active"'; }?> href="?page=data_spp&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-calculator fa-fw"></i> Data Pembayaran SPP </a>
                             </li>
 
                             <li>
-                                <a href="?page=alumni&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-users fa-fw"></i> Data Alumni </a>
+                                <a <?php if ($_GET["page"]=="alumni"){echo 'class="active"'; }?> href="?page=alumni&id_adm=<?php echo $_GET['id_adm']?>"><i class="fa fa-users fa-fw"></i> Data Alumni </a>
                             </li>
 
 

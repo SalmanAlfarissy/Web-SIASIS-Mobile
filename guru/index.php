@@ -90,15 +90,15 @@
                                 <!-- /input-group -->
                             </li>
                             <li>
-                                <a href="?page=home&id_guru=<?php echo $_GET['id_guru']?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                                <a <?php if ($_GET["page"]=="home"){echo 'class="active"'; }?> href="?page=home&id_guru=<?php echo $_GET['id_guru']?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                             </li>
                             
                             <li>
-                                <a href="index.php?page=raport&id_guru=<?php echo $_GET['id_guru']?>"><i class="fa fa-edit fa-fw"></i> Raport </a>
+                                <a <?php if ($_GET["page"]=="raport"){echo 'class="active"'; }?> href="index.php?page=raport&id_guru=<?php echo $_GET['id_guru']?>"><i class="fa fa-edit fa-fw"></i> Raport </a>
                             </li>
 
                             <li>
-                                <a href="index.php?page=siswa&id_guru=<?php echo $_GET['id_guru']?>"><i class="fa fa-users fa-fw"></i> Data Siswa </a>
+                                <a <?php if ($_GET["page"]=="siswa"){echo 'class="active"'; }?> href="index.php?page=siswa&id_guru=<?php echo $_GET['id_guru']?>"><i class="fa fa-users fa-fw"></i> Data Siswa </a>
                             </li>
                             
                             

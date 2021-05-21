@@ -88,7 +88,7 @@ if (isset($_POST['submit'])) {
             // $_SESSION['level']=$data['level'];
             // $_SESSION['iduser']=$data['id'];
             
-            echo "<script>top.location='admin/index.php?id_adm=$data[id_adm]'</script>";
+            echo "<script>top.location='admin/index.php?page=home&id_adm=$data[id_adm]'</script>";
                 }
         else {
             echo "<script>alert('Username and password invalid')</script>";
@@ -107,7 +107,7 @@ if (isset($_POST['submit'])) {
             // $_SESSION['level']=$data['level'];
             // $_SESSION['iduser']=$data['id'];
             
-            echo "<script>top.location='guru/index.php?id_guru=$data[id_guru]'</script>";
+            echo "<script>top.location='guru/index.php?page=home&id_guru=$data[id_guru]'</script>";
                 }
         else {
             echo "<script>alert('Username and password invalid')</script>";
