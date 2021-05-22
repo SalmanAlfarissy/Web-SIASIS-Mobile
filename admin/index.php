@@ -9,6 +9,9 @@
 
         <title>Web Siasis Mobile</title>
 
+        <!-- icon -->
+        <link rel="icon" type="image/png" href="../images/logo.png"/>
+
         <!-- Bootstrap Core CSS -->
         <link href="../scss/bootstrap.min.css" rel="stylesheet">
 
