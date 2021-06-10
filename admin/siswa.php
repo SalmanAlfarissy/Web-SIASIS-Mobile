@@ -33,8 +33,9 @@ switch ($aksi){
                                 <th>NISN</th>
                                 <th>NIS</th>
                                 <th>Nama_sis</th>
-                                <th>password</th>
-                                <th>kelas</th>
+                                <th>Password</th>
+                                <th>Kelas</th>
+                                <th>Semester</th>
                                 <th>Wali Kelas</th>
                                 <th>Cover</th>
                                 <th>Aksi</th>
@@ -58,6 +59,7 @@ switch ($aksi){
                                 <td><?php echo $data['nama_sis']?></td>
                                 <td><?php echo $data['password']?></td>
                                 <td><?php echo $data['kelas']?></td>
+                                <td><?php echo $data['semester']?></td>
                                 <td><?php echo $gr['nama_guru']?></td>
                                 <td><?php echo $data['cover']?></td>
                                 <td><a href=?page=siswa&aksi=edit&id_adm=<?php echo $_GET['id_adm'] ?>&id_siswa=<?php echo $data['id_siswa']; ?> class="btn btn-success btn-sm fa fa-pencil"> Edit</a>
@@ -118,6 +120,14 @@ switch ($aksi){
                         </div>
 
                         <div class="form-group">
+                            <label>Semester</label>
+                            <select name="semester" class="form-control">
+                                <option value='Semester 1'>Semester 1</option>
+                                <option value='Semester 2'>Semester 2</option>                                
+                            </select>
+                        </div>
+
+                        <div class="form-group">
                             <label>Cover</label>
                             <input type="file" name="file_image">
                         </div>
@@ -172,6 +182,17 @@ switch ($aksi){
                         <div class="form-group">
                             <label>Kelas</label>
                             <input type="text" name="kelas" class="form-control" placeholder="Kelas" value="<?php echo $data['kelas']?>">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Semester</label>
+                            <select name="semester" class="form-control">
+                                <?php                                
+                                echo "<option value='$data[semester]' selected>$data[semester]</option>";
+                                echo "<option value='Semester 1' >Semester 1</option>";
+                                echo "<option value='Semester 2' >Semester 2</option>";
+                                ?>
+                            </select>
                         </div>
 
                         <div class="form-group">

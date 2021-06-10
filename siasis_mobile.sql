@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 19 Bulan Mei 2021 pada 19.24
+-- Waktu pembuatan: 10 Jun 2021 pada 05.28
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -119,7 +119,7 @@ CREATE TABLE `kelas` (
 --
 
 INSERT INTO `kelas` (`kelas`, `jadwal`) VALUES
-('X.1', ''),
+('X.1', '706096WhatsApp Image 2021-05-21 at 10.36.40.jpeg'),
 ('X.2', ''),
 ('X.3', '');
 
@@ -174,6 +174,7 @@ CREATE TABLE `siswa` (
   `alamat` text NOT NULL,
   `no_hp` varchar(20) NOT NULL,
   `kelas` varchar(40) NOT NULL,
+  `semester` varchar(100) NOT NULL,
   `tahun_diterima` varchar(25) NOT NULL,
   `semester_diterima` varchar(40) NOT NULL,
   `nama_sekolah_asal` text NOT NULL,
@@ -198,12 +199,12 @@ CREATE TABLE `siswa` (
 -- Dumping data untuk tabel `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `id_guru`, `id_adm`, `password`, `nisn`, `nis`, `nama_sis`, `foto_sis`, `ttl`, `jenis_kelamin`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `no_hp`, `kelas`, `tahun_diterima`, `semester_diterima`, `nama_sekolah_asal`, `alamat_sekolah_asal`, `tahun_ijazah_sebelumnya`, `nomor_ijazah_sebelumnya`, `tahun_skhun_sebelumya`, `nomor_skhun_sebelumnya`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `no_hp_wali`, `pekerjaan_wali`, `cover`) VALUES
-(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '13542', 'Salman Alfarissy', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(2, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054922', '12354', 'novita Aulia', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(3, 2, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054999', '14236', 'Afrizal Fauzi', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(4, 2, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054920', '12569', 'Vira Mistika', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
-(5, 3, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054900', '13457', 'Indah Wahyu Andilah', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.3', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
+INSERT INTO `siswa` (`id_siswa`, `id_guru`, `id_adm`, `password`, `nisn`, `nis`, `nama_sis`, `foto_sis`, `ttl`, `jenis_kelamin`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `no_hp`, `kelas`, `semester`, `tahun_diterima`, `semester_diterima`, `nama_sekolah_asal`, `alamat_sekolah_asal`, `tahun_ijazah_sebelumnya`, `nomor_ijazah_sebelumnya`, `tahun_skhun_sebelumya`, `nomor_skhun_sebelumnya`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `no_hp_wali`, `pekerjaan_wali`, `cover`) VALUES
+(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '12345', 'Salman Alfarissy', 'salman.JPG', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '282828'),
+(2, 1, 1, '827ccb0eea8a706c4c34a16891f84e7b', '9996054922', '12354', 'novita Aulia', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '829796'),
+(3, 2, 1, 'e10adc3949ba59abbe56e057f20f883e', '9996054999', '14236', 'Afrizal Fauzi', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '971440'),
+(4, 2, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054920', '12569', 'Vira Mistika', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '660180'),
+(5, 3, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054900', '13457', 'Indah Wahyu Andilah', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.3', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '690671');
 
 --
 -- Indexes for dumped tables

@@ -42,6 +42,7 @@ else if ($page=='siswa' AND $proses=='input'){
       '$_POST[nama_sis]',
       '$pass',
       '$_POST[kelas]',
+      '$_POST[semester]',
       '$nama_file_unik')");
     header('location:index.php?page=siswa&id_adm='.$_SESSION['id_adm']);
     }
@@ -55,7 +56,8 @@ else if ($page=='siswa' AND $proses=='input'){
     '$_POST[nis]',
     '$_POST[nama_sis]',
     '$pass',
-    '$_POST[kelas]')");
+    '$_POST[kelas]',
+    '$_POST[semester]')");
   header('location:index.php?page=siswa&id_adm='.$_SESSION['id_adm']);
   }
 
@@ -85,6 +87,7 @@ else if ($page=='siswa' AND $proses=='update'){
                             nama_sis     = '$_POST[nama_sis]',
                             password     = '$pass',
                             kelas     = '$_POST[kelas]',
+                            semester = '$_POST[semester]',
                             cover       = '$nama_file_unik'
                            WHERE id_siswa = '$_POST[id_siswa]'");
   header('location:index.php?page=siswa&id_adm='.$_SESSION['id_adm']);
