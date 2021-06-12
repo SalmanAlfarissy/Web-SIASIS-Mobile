@@ -116,14 +116,32 @@ switch ($aksi){
 
                         <div class="form-group">
                             <label>Kelas</label>
-                            <input type="text" name="kelas" class="form-control" placeholder="Kelas">
+                            <!-- <input type="text" name="kelas" class="form-control" placeholder="Kelas"> -->
+                            <select name="kelas" class="form-control">
+                                <option value='X.1'>X.1</option>
+                                <option value='X.2'>X.2</option> 
+                                <option value='X.3'>X.3</option>
+                                <option value='X.4'>X.4</option>
+                                <option value='XI.1'>XI.1</option> 
+                                <option value='XI.2'>XI.2</option>  
+                                <option value='XI.3'>XI.3</option>
+                                <option value='XI.4'>XI.4</option> 
+                                <option value='XII.1'>XII.1</option>
+                                <option value='XII.2'>XII.2</option>
+                                <option value='XII.3'>XII.3</option> 
+                                <option value='XII.4'>XII.4</option>                              
+                            </select>
                         </div>
 
                         <div class="form-group">
                             <label>Semester</label>
                             <select name="semester" class="form-control">
                                 <option value='Semester 1'>Semester 1</option>
-                                <option value='Semester 2'>Semester 2</option>                                
+                                <option value='Semester 2'>Semester 2</option> 
+                                <option value='Semester 3'>Semester 3</option>
+                                <option value='Semester 4'>Semester 4</option> 
+                                <option value='Semester 5'>Semester 5</option>
+                                <option value='Semester 6'>Semester 6</option>                                
                             </select>
                         </div>
 
@@ -181,7 +199,23 @@ switch ($aksi){
 
                         <div class="form-group">
                             <label>Kelas</label>
-                            <input type="text" name="kelas" class="form-control" placeholder="Kelas" value="<?php echo $data['kelas']?>">
+                            <select name="kelas" class="form-control">
+                                <?php                                
+                                echo "<option value='$data[kelas]' selected>$data[kelas]</option>";
+                                echo "<option value='X.1'>X.1</option>
+                                <option value='X.2'>X.2</option> 
+                                <option value='X.3'>X.3</option>
+                                <option value='X.4'>X.4</option>
+                                <option value='XI.1'>XI.1</option> 
+                                <option value='XI.2'>XI.2</option>  
+                                <option value='XI.3'>XI.3</option>
+                                <option value='XI.4'>XI.4</option> 
+                                <option value='XII.1'>XII.1</option>
+                                <option value='XII.2'>XII.2</option>
+                                <option value='XII.3'>XII.3</option> 
+                                <option value='XII.4'>XII.4</option>";
+                                ?>
+                            </select>
                         </div>
 
                         <div class="form-group">
@@ -191,9 +225,12 @@ switch ($aksi){
                                 echo "<option value='$data[semester]' selected>$data[semester]</option>";
                                 echo "<option value='Semester 1' >Semester 1</option>";
                                 echo "<option value='Semester 2' >Semester 2</option>";
+                                echo "<option value='Semester 3' >Semester 3</option>";
+                                echo "<option value='Semester 4' >Semester 4</option>";
+                                echo "<option value='Semester 5' >Semester 5</option>";
+                                echo "<option value='Semester 6' >Semester 6</option>";
                                 ?>
                             </select>
-                        </div>
 
                         <div class="form-group">
                             <label>Cover</label>

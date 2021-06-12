@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Jun 2021 pada 05.28
+-- Waktu pembuatan: 12 Jun 2021 pada 06.54
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -44,7 +44,8 @@ INSERT INTO `administrator` (`id_adm`, `nip_ad`, `nama_ad`, `email`, `password`)
 (2, '18110820230999', 'Vira mistika', 'vira.mistika@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
 (3, '18110810062000', 'Novita Aulia', 'novita.aulia@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
 (4, '18110820240999', 'Afrizal Fauzi', 'afrizal.fauzi@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
-(5, '18110820191999', 'Indah Wahyu Andilah', 'indah.wahyu@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f');
+(5, '18110820191999', 'Indah Wahyu Andilah', 'indah.wahyu@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f'),
+(6, '18110820271988', 'Hani', 'Hani@gmail.com', 'e807f1fcf82d132f9bb018ca6738a19f');
 
 -- --------------------------------------------------------
 
@@ -86,7 +87,8 @@ CREATE TABLE `guru` (
 INSERT INTO `guru` (`id_guru`, `id_adm`, `nip_guru`, `password`, `nama_guru`, `email_guru`, `no_telp`, `jabatan`) VALUES
 (1, 1, '18110820271999', 'e807f1fcf82d132f9bb018ca6738a19f', 'Salman Alfarissy', 'alfarissy.scorpio@gmail.com', '082285032741', 'Wali Kelas X.1'),
 (2, 1, '18110810062000', 'e807f1fcf82d132f9bb018ca6738a19f', 'Novita Aulia', 'novi@gmail.com', '082285000190', 'Wali Kelas X.2'),
-(3, 3, '18110820231999', 'e807f1fcf82d132f9bb018ca6738a19f', 'Vira Mistika', 'vira@gmail.com', '082234567890', 'Wali Kelas x.3');
+(3, 3, '18110820231999', 'e807f1fcf82d132f9bb018ca6738a19f', 'Vira Mistika', 'vira@gmail.com', '082234567890', 'Wali Kelas x.3'),
+(4, 1, '18110810062021', 'e807f1fcf82d132f9bb018ca6738a19f', 'Miory', 'mio@gmail.com', '0899231234', 'Wali Kelas x.4');
 
 -- --------------------------------------------------------
 
@@ -121,7 +123,16 @@ CREATE TABLE `kelas` (
 INSERT INTO `kelas` (`kelas`, `jadwal`) VALUES
 ('X.1', '706096WhatsApp Image 2021-05-21 at 10.36.40.jpeg'),
 ('X.2', ''),
-('X.3', '');
+('X.3', ''),
+('X.4', ''),
+('XI.1', ''),
+('XI.2', ''),
+('XI.3', ''),
+('XI.4', ''),
+('XII.1', ''),
+('XII.2', ''),
+('XII.3', ''),
+('XII.4', '');
 
 -- --------------------------------------------------------
 
@@ -150,6 +161,16 @@ CREATE TABLE `rapor` (
   `rapor` text NOT NULL,
   `semester` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data untuk tabel `rapor`
+--
+
+INSERT INTO `rapor` (`id_rapor`, `id_siswa`, `id_guru`, `rapor`, `semester`) VALUES
+(0, 2, 1, '985389Screenshot (24).png', 'Semester 1'),
+(1, 1, 1, '74705Screenshot (22).png', 'Semester 1'),
+(2, 1, 1, '644386Screenshot (20).png', 'Semester 2'),
+(4, 2, 1, '269270Screenshot (34).png', 'Semester 2');
 
 -- --------------------------------------------------------
 
@@ -200,11 +221,14 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `id_guru`, `id_adm`, `password`, `nisn`, `nis`, `nama_sis`, `foto_sis`, `ttl`, `jenis_kelamin`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `no_hp`, `kelas`, `semester`, `tahun_diterima`, `semester_diterima`, `nama_sekolah_asal`, `alamat_sekolah_asal`, `tahun_ijazah_sebelumnya`, `nomor_ijazah_sebelumnya`, `tahun_skhun_sebelumya`, `nomor_skhun_sebelumnya`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `no_hp_wali`, `pekerjaan_wali`, `cover`) VALUES
-(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '12345', 'Salman Alfarissy', 'salman.JPG', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '282828'),
+(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '12345', 'Salman Alfarissy', 'salman.JPG', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '938475'),
 (2, 1, 1, '827ccb0eea8a706c4c34a16891f84e7b', '9996054922', '12354', 'novita Aulia', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '829796'),
 (3, 2, 1, 'e10adc3949ba59abbe56e057f20f883e', '9996054999', '14236', 'Afrizal Fauzi', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '971440'),
 (4, 2, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054920', '12569', 'Vira Mistika', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '660180'),
-(5, 3, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054900', '13457', 'Indah Wahyu Andilah', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.3', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '690671');
+(5, 3, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054900', '13457', 'Indah Wahyu Andilah', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.3', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '690671'),
+(6, 3, 1, '827ccb0eea8a706c4c34a16891f84e7b', '999605090', '12365', 'Siska ramadhani', '', '', '', '', '', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '863197'),
+(7, 2, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054900', '12569', 'Yuuki', '', '', '', '', '', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', ''),
+(8, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054998', '56782', 'Aha', '', '', '', '', '', '', '', '', 'X.2', 'Semester 2', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '');
 
 --
 -- Indexes for dumped tables

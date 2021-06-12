@@ -88,7 +88,7 @@ switch ($aksi){
                             <label>Nama Siswa</label>
                             <select name="id_siswa" class="form-control">
                                 <?php
-                                $ambil=mysqli_query($koneksi,"SELECT id_siswa,nisn,nama_sis FROM siswa order by id_siswa ASC");
+                                $ambil=mysqli_query($koneksi,"SELECT id_siswa,nisn,nama_sis FROM siswa where id_guru = $_GET[id_guru] order by id_siswa ASC");
                                 while ($data=mysqli_fetch_array($ambil)) {
                                 echo "<option value='$data[id_siswa]'>$data[nama_sis]</option>";
                                 }

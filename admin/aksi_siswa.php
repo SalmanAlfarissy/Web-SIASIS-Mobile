@@ -33,14 +33,14 @@ else if ($page=='siswa' AND $proses=='input'){
         echo "<a href=javascript:history.go(-1)>Ulangi Lagi</a>";       
     }    else{
       move_uploaded_file($lokasi_file,"cover/$nama_file_unik");
-      mysqli_query($koneksi,"INSERT INTO siswa (id_siswa,id_guru,id_adm,nisn,nis,nama_sis,password,kelas,cover) VALUES 
+      mysqli_query($koneksi,"INSERT INTO siswa (id_siswa, id_guru, id_adm, password, nisn, nis, nama_sis, kelas, semester, cover) VALUES 
       ('$_POST[id_siswa]',
       '$_POST[id_guru]',
       '$_SESSION[id_adm]',
+      '$pass',
       '$_POST[nisn]',
       '$_POST[nis]',
       '$_POST[nama_sis]',
-      '$pass',
       '$_POST[kelas]',
       '$_POST[semester]',
       '$nama_file_unik')");
@@ -48,20 +48,19 @@ else if ($page=='siswa' AND $proses=='input'){
     }
 
   }   else {
-    mysqli_query($koneksi,"INSERT INTO siswa (id_siswa,id_guru,id_adm,nisn,nis,nama_sis,password,kelas) VALUES 
+    mysqli_query($koneksi,"INSERT INTO siswa (id_siswa, id_guru, id_adm, password, nisn, nis, nama_sis, kelas, semester) VALUES 
     ('$_POST[id_siswa]',
     '$_POST[id_guru]',
     '$_SESSION[id_adm]',
+    '$pass',
     '$_POST[nisn]',
     '$_POST[nis]',
     '$_POST[nama_sis]',
-    '$pass',
     '$_POST[kelas]',
     '$_POST[semester]')");
   header('location:index.php?page=siswa&id_adm='.$_SESSION['id_adm']);
   }
 
-  
 }
 else if ($page=='siswa' AND $proses=='update'){
   // ======Raport====
