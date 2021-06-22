@@ -17,7 +17,7 @@ include_once '../koneksi.php';
  $alamat_sekolah_asal= $_POST['alamat_sekolah_asal'];
  $tahun_ijazah_sebelumnya= $_POST['tahun_ijazah_sebelumnya'];
  $nomor_ijazah_sebelumnya= $_POST['nomor_ijazah_sebelumnya'];
- $tahun_skhun_sebelumnya= $_POST['tahun_skhun_sebelumnya'];
+ $tahun_skhun_sebelumnya= $_POST['tahun_skhun_sebelumya'];
  $nomor_skhun_sebelumnya= $_POST['nomor_skhun_sebelumnya'];
  $nama_ayah= $_POST['nama_ayah'];
  $nama_ibu= $_POST['nama_ibu'];
@@ -32,7 +32,6 @@ include_once '../koneksi.php';
  $sqlquery = "UPDATE siswa SET 
  password = '$password', 
  nama_sis = '$nama_sis', 
- foto_sis = '$foto_sis', 
  ttl='$ttl', 
  jenis_kelamin='$jenis_kelamin', 
  agama='$agama',
@@ -46,7 +45,7 @@ include_once '../koneksi.php';
  alamat_sekolah_asal = '$alamat_sekolah_asal', 
  tahun_ijazah_sebelumnya = '$tahun_ijazah_sebelumnya', 
  nomor_ijazah_sebelumnya='$nomor_ijazah_sebelumnya', 
- tahun_skhun_sebelumnya='$tahun_skhun_sebelumnya', 
+ tahun_skhun_sebelumya='$tahun_skhun_sebelumnya', 
  nomor_skhun_sebelumnya='$nomor_skhun_sebelumnya',
  nama_ayah = '$nama_ayah', 
  nama_ibu = '$nama_ibu', 
@@ -61,7 +60,6 @@ include_once '../koneksi.php';
 
  if (mysqli_query($koneksi, $sqlquery)) {
      echo 'update data suskses';
-    
 }
 else{
     echo 'silahkan Coba lagi!!';

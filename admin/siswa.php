@@ -38,6 +38,7 @@ switch ($aksi){
                                 <th>Semester</th>
                                 <th>Wali Kelas</th>
                                 <th>Cover</th>
+                                <th>Foto Siswa</th>
                                 <th>Aksi</th>
                             </tr>
                         </thead>
@@ -62,6 +63,7 @@ switch ($aksi){
                                 <td><?php echo $data['semester']?></td>
                                 <td><?php echo $gr['nama_guru']?></td>
                                 <td><?php echo $data['cover']?></td>
+                                <td><?php echo $data['foto_sis']?></td>
                                 <td><a href=?page=siswa&aksi=edit&id_adm=<?php echo $_GET['id_adm'] ?>&id_siswa=<?php echo $data['id_siswa']; ?> class="btn btn-success btn-sm fa fa-pencil"> Edit</a>
 			                        <a href="aksi_siswa.php?page=siswa&id_adm=<?php echo $_GET['id_adm'] ?>&proses=hapus&id_siswa=<?php echo $data['id_siswa']; ?>" 
 				                    onclick="return confirm('Yakin akan menghapus data ?');" class="btn btn-danger btn-sm fa fa-trash-o"> Hapus</td>
@@ -148,6 +150,11 @@ switch ($aksi){
                         <div class="form-group">
                             <label>Cover</label>
                             <input type="file" name="file_image">
+                        </div>
+
+                        <div class="form-group">
+                            <label>Foto</label>
+                            <input type="file" name="file_foto">
                         </div>
 
 
@@ -238,6 +245,19 @@ switch ($aksi){
                             <?php 
                             if ($data['cover']!='') {
                                 echo "<img class='gambar' src='cover/$data[cover]' height='100' width='100'>";
+                            }
+                            else {
+                                echo "Tidak ada image";
+                            }
+                            ?>
+                        </div>
+
+                        <div class="form-group">
+                            <label>Foto Siswa</label>
+                            <input type="file" name="file_foto">
+                            <?php 
+                            if ($data['foto_sis']!='') {
+                                echo "<img class='gambar' src='siswa/$data[foto_sis]' height='100' width='100'>";
                             }
                             else {
                                 echo "Tidak ada image";

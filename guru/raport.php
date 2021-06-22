@@ -100,7 +100,11 @@ switch ($aksi){
                             <label>Semester</label>
                             <select name="semester" class="form-control">
                                 <option value='Semester 1'>Semester 1</option>
-                                <option value='Semester 2'>Semester 2</option>                                
+                                <option value='Semester 2'>Semester 2</option>  
+                                <option value='Semester 3'>Semester 3</option>
+                                <option value='Semester 4'>Semester 4</option> 
+                                <option value='Semester 5'>Semester 5</option>
+                                <option value='Semester 6'>Semester 6</option>                               
                             </select>
                         </div>
 

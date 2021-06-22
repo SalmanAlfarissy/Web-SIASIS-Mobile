@@ -44,7 +44,7 @@ else if ($page=='alumni' AND $proses=='input'){
     }
 
   }   else {
-    mysqli_query($koneksi,"INSERT INTO alumni (id_alumni,id_adm,nama,angkatan,pekerjaan,alamat,foto) VALUES 
+    mysqli_query($koneksi,"INSERT INTO alumni (id_alumni,id_adm,nama,angkatan,pekerjaan,alamat) VALUES 
       ('',
       '$_SESSION[id_adm]',
       '$_POST[nama]',
