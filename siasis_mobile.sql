@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 12 Jun 2021 pada 06.54
+-- Waktu pembuatan: 27 Jun 2021 pada 09.47
 -- Versi server: 10.4.17-MariaDB
 -- Versi PHP: 8.0.0
 
@@ -63,6 +63,17 @@ CREATE TABLE `alumni` (
   `foto` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `alumni`
+--
+
+INSERT INTO `alumni` (`id_alumni`, `id_adm`, `nama`, `angkatan`, `pekerjaan`, `alamat`, `foto`) VALUES
+(1, 1, 'Hiro', '2016', 'Mobile Programer', 'Tandikek', '629161H.jpg'),
+(2, 1, 'Zero Two', '2016', 'UI/UX Designer', 'pauh', '25192z.png'),
+(3, 1, 'Claude', '2017', 'Web Programer', 'Kampuang Tanjuang', '694124A.jpg'),
+(4, 1, 'Siro', '2018', 'Designer', 'Sicincin', '530819B.jpg'),
+(5, 1, 'Jecky', '2017', 'Database Administrator', 'Pauh', '219008D.png');
+
 -- --------------------------------------------------------
 
 --
@@ -105,6 +116,18 @@ CREATE TABLE `informasi` (
   `deskripsi` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
+--
+-- Dumping data untuk tabel `informasi`
+--
+
+INSERT INTO `informasi` (`id_info`, `id_adm`, `nama_event`, `gambar_event`, `tgl_post`, `deskripsi`) VALUES
+(1, 1, 'Dirgahayu Republik Indonesia ke-75', '94382417 agustus.jpg', '2021-06-15 11:01:25', 'Selamat memperingati hari kemesdekaan yang ke-75'),
+(2, 1, 'Lomba Cerdas Cermat', '352354cc.jpg', '2021-06-15 11:04:41', 'Cerdas cermat lalu lintas tingkat sma se-kota banda aceh \"Generasi muda cerdas dan tertib berlalu lintas\" fakultas Ekonomi,20-21 Maret 2015'),
+(3, 1, 'Selamat UASBN', '516542UASBN.jpg', '2021-06-15 11:06:20', 'Selamat menempuh ujian sekolah berstandar nasional (UASBN) dan ujian nasional (UN) \"Semoga Sukses\".'),
+(4, 1, 'Happy Graduation', '334160kelulusan.jpg', '2021-06-15 11:08:32', 'Selamat untuk siswa atas kelulusan nya semoga sukses untuk kedepannya...\"semangat!!\"'),
+(5, 1, 'Ramadhan 1438h 2017 Masjid Al Ikhlas', '878340ramadhan.jpg', '2021-06-20 13:16:35', 'Perlombaan di bulan Ramadhan 1438h 2017 di Masjid Al Ikhlas'),
+(6, 1, 'Lomba Cerdas Cermat SMP', '19122spanduk-ccs-ii.png', '2021-06-20 13:18:29', 'Cerdas Cermat Sains');
+
 -- --------------------------------------------------------
 
 --
@@ -129,7 +152,7 @@ INSERT INTO `kelas` (`kelas`, `jadwal`) VALUES
 ('XI.2', ''),
 ('XI.3', ''),
 ('XI.4', ''),
-('XII.1', ''),
+('XII.1', '746598WhatsApp Image 2021-05-21 at 10.36.40.jpeg'),
 ('XII.2', ''),
 ('XII.3', ''),
 ('XII.4', '');
@@ -147,6 +170,14 @@ CREATE TABLE `pembayaran` (
   `semester` varchar(100) NOT NULL,
   `status` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `pembayaran`
+--
+
+INSERT INTO `pembayaran` (`id_pem`, `id_adm`, `nis`, `semester`, `status`) VALUES
+(1, 1, '12345', 'Semester 6', 'Lunas'),
+(2, 1, '12354', 'Semester 1', 'Belum Bayar');
 
 -- --------------------------------------------------------
 
@@ -168,9 +199,13 @@ CREATE TABLE `rapor` (
 
 INSERT INTO `rapor` (`id_rapor`, `id_siswa`, `id_guru`, `rapor`, `semester`) VALUES
 (0, 2, 1, '985389Screenshot (24).png', 'Semester 1'),
-(1, 1, 1, '74705Screenshot (22).png', 'Semester 1'),
-(2, 1, 1, '644386Screenshot (20).png', 'Semester 2'),
-(4, 2, 1, '269270Screenshot (34).png', 'Semester 2');
+(1, 1, 1, '3072295.jpg', 'Semester 1'),
+(2, 1, 1, '5373948.jpg', 'Semester 2'),
+(4, 2, 1, '269270Screenshot (34).png', 'Semester 2'),
+(5, 1, 1, '54335011.jpg', 'Semester 3'),
+(6, 1, 1, '36837214.jpg', 'Semester 4'),
+(7, 1, 1, '5051217.jpg', 'Semester 5'),
+(8, 1, 1, '95243419.jpg', 'Semester 6');
 
 -- --------------------------------------------------------
 
@@ -221,9 +256,9 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `id_guru`, `id_adm`, `password`, `nisn`, `nis`, `nama_sis`, `foto_sis`, `ttl`, `jenis_kelamin`, `agama`, `status_keluarga`, `anak_ke`, `alamat`, `no_hp`, `kelas`, `semester`, `tahun_diterima`, `semester_diterima`, `nama_sekolah_asal`, `alamat_sekolah_asal`, `tahun_ijazah_sebelumnya`, `nomor_ijazah_sebelumnya`, `tahun_skhun_sebelumya`, `nomor_skhun_sebelumnya`, `nama_ayah`, `nama_ibu`, `alamat_ortu`, `pekerjaan_ayah`, `pekerjaan_ibu`, `nama_wali`, `alamat_wali`, `no_hp_wali`, `pekerjaan_wali`, `cover`) VALUES
-(1, 1, 1, 'e807f1fcf82d132f9bb018ca6738a19f', '9996054913', '12345', 'Salman Alfarissy', 'salman.JPG', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '938475'),
-(2, 1, 1, '827ccb0eea8a706c4c34a16891f84e7b', '9996054922', '12354', 'novita Aulia', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '829796'),
-(3, 2, 1, 'e10adc3949ba59abbe56e057f20f883e', '9996054999', '14236', 'Afrizal Fauzi', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '971440'),
+(1, 1, 1, '827ccb0eea8a706c4c34a16891f84e7b', '9996054913', '12345', 'Salman Alfarissy', '626771salman.JPG', 'KotoMambang,26-10-1999', 'laki-laki', 'islam', 'Anak Kandung', '2', 'Kampuang Tanjuang', '082285032741', 'XII.1', 'Semester 6', '2016-01-01', 'Semester 1', 'SMP N 1 Patamuan', 'Kabun Pondok Duo', '2016', '09808026999', '', '08976102699', 'Abdul Kosasi', 'Murlena Dewi', 'Kampuang Tajuang', 'Buruh Harian Lepas', 'IRT', '-', '-', '-', '-', '193855178371.jpg'),
+(2, 1, 1, '827ccb0eea8a706c4c34a16891f84e7b', '9996054922', '12354', 'Novita Aulia', '305805B.jpg', '20-07-2000', 'Perempuan', 'Islam', 'Anak Kandung', '', 'Kayutanam', '0800990', 'X.1', 'Semester 1', '2016', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '6493964.jpg'),
+(3, 2, 1, '827ccb0eea8a706c4c34a16891f84e7b', '9996054999', '14236', 'Afrizal Fauzi', '5178371.jpg', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '2875481.jpg'),
 (4, 2, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054920', '12569', 'Vira Mistika', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.2', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '660180'),
 (5, 3, 1, 'c2f1366c51911b52369fe27df307ff84', '9996054900', '13457', 'Indah Wahyu Andilah', '', '', 'L', '', 'Anak Kandung', '', '', '', 'X.3', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '690671'),
 (6, 3, 1, '827ccb0eea8a706c4c34a16891f84e7b', '999605090', '12365', 'Siska ramadhani', '', '', '', '', '', '', '', '', 'X.1', 'Semester 1', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '863197'),
@@ -299,13 +334,13 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT untuk tabel `alumni`
 --
 ALTER TABLE `alumni`
-  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_alumni` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT untuk tabel `pembayaran`
 --
 ALTER TABLE `pembayaran`
-  MODIFY `id_pem` int(50) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_pem` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
